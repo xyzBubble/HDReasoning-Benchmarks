@@ -1,0 +1,58 @@
+prefix : <http://example#>
+
+# minus expression
+:eval[?s , ?e],
+:instance[?e , ?i],
+:value[?e , ?v] :-
+    :hasType[?s , :Minus],
+    :hasLhs[?s , ?lhs],
+    :hasRhs[?s , ?rhs],
+    # RHS
+    :eval[?rhs , ?erhs],
+    :value[?erhs , ?vrhs],
+    :instance[?erhs , ?i],
+    # LHS
+    :eval[?lhs , ?elhs],
+    :value[?elhs , ?vlhs],
+    :instance[?elhs , ?i],
+    # Value
+    BIND(?vlhs - ?vrhs as ?v),
+    BIND(SKOLEM("Eval", ?s, ?i) AS ?e) .
+
+# plus expression
+:eval[?s , ?e],
+:instance[?e , ?i],
+:value[?e , ?v] :-
+    :hasType[?s , :Plus],
+    :hasLhs[?s , ?lhs],
+    :hasRhs[?s , ?rhs],
+    # RHS
+    :eval[?rhs , ?erhs],
+    :value[?erhs , ?vrhs],
+    :instance[?erhs , ?i],
+    # LHS
+    :eval[?lhs , ?elhs],
+    :value[?elhs , ?vlhs],
+    :instance[?elhs , ?i],
+    # Value
+    BIND(?vlhs + ?vrhs as ?v),
+    BIND(SKOLEM("Eval", ?s, ?i) AS ?e) .
+
+# times expression
+:eval[?s , ?e],
+:instance[?e , ?i],
+:value[?e , ?v] :-
+    :hasType[?s , :Times],
+    :hasLhs[?s , ?lhs],
+    :hasRhs[?s , ?rhs],
+    # RHS
+    :eval[?rhs , ?erhs],
+    :value[?erhs , ?vrhs],
+    :instance[?erhs , ?i],
+    # LHS
+    :eval[?lhs , ?elhs],
+    :value[?elhs , ?vlhs],
+    :instance[?elhs , ?i],
+    # Value
+    BIND(?vlhs * ?vrhs as ?v),
+    BIND(SKOLEM("Eval", ?s, ?i) AS ?e) .

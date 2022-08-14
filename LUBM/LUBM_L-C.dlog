@@ -1,0 +1,207 @@
+PREFIX a1: <http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ruleml: <http://www.w3.org/2003/11/ruleml#>
+PREFIX swrl: <http://www.w3.org/2003/11/swrl#>
+PREFIX swrlb: <http://www.w3.org/2003/11/swrlb#>
+PREFIX swrlx: <http://www.w3.org/2003/11/swrlx#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://example#>
+
+
+a1:University[?X1] :- a1:mastersDegreeFrom[?X,?X1] .
+a1:Person[?X] :- a1:title[?X,?X1] .
+a1:degreeFrom[?X,?Y] :- a1:hasAlumnus[?Y,?X] .
+a1:hasAlumnus[?X,?Y] :- a1:degreeFrom[?Y,?X] .
+a1:Employee[?X] :- a1:Faculty[?X] .
+a1:Faculty[?X] :- a1:Professor[?X] .
+a1:Course[?X1] :- a1:listedCourse[?X,?X1] .
+a1:Professor[?X] :- a1:AssociateProfessor[?X] .
+a1:Person[?X1] :- a1:member[?X,?X1] .
+a1:Professor[?X] :- a1:AssistantProfessor[?X] .
+a1:Organization[?X] :- a1:orgPublication[?X,?X1] .
+a1:Professor[?X] :- a1:Chair[?X] .
+a1:Article[?X] :- a1:TechnicalReport[?X] .
+a1:worksFor[?X,?Y] :- a1:headOf[?X,?Y] .
+a1:Person[?X] :- a1:age[?X,?X1] .
+a1:Person[?X] :- a1:degreeFrom[?X,?X1] .
+a1:University[?X1] :- a1:degreeFrom[?X,?X1] .
+a1:Publication[?X] :- a1:Specification[?X] .
+a1:AdministrativeStaff[?X] :- a1:SystemsStaff[?X] .
+a1:Person[?X1] :- a1:hasAlumnus[?X,?X1] .
+a1:Publication[?X1] :- a1:softwareDocumentation[?X,?X1] .
+a1:Faculty[?X] :- a1:PostDoc[?X] .
+a1:Software[?X] :- a1:softwareVersion[?X,?X1] .
+a1:Article[?X] :- a1:ConferencePaper[?X] .
+a1:TeachingAssistant[?X] :- a1:Person[?X], a1:teachingAssistantOf[?X,?X1], a1:Course[?X1] .
+a1:Person[?X1] :- a1:affiliateOf[?X,?X1] .
+a1:Chair[?X] :- a1:Person[?X], a1:headOf[?X,?X1], a1:Department[?X1] .
+a1:Director[?X] :- a1:Person[?X], a1:headOf[?X,?X1], a1:Program[?X1] .
+a1:memberOf[?X,?Y] :- a1:member[?Y,?X] .
+a1:member[?X,?Y] :- a1:memberOf[?Y,?X] .
+a1:Professor[?X] :- a1:tenured[?X,?X1] .
+a1:Course[?X1] :- a1:teacherOf[?X,?X1] .
+a1:University[?X] :- a1:hasAlumnus[?X,?X1] .
+a1:Work[?X] :- a1:Research[?X] .
+a1:Person[?X] :- a1:telephone[?X,?X1] .
+a1:Organization[?X] :- a1:Institute[?X] .
+a1:Organization[?X1] :- a1:subOrganizationOf[?X,?X1] .
+a1:memberOf[?X,?Y] :- a1:worksFor[?X,?Y] .
+a1:Person[?X] :- a1:Employee[?X] .
+a1:Software[?X] :- a1:softwareDocumentation[?X,?X1] .
+a1:Person[?X] :- a1:advisor[?X,?X1] .
+a1:Organization[?X] :- a1:member[?X,?X1] .
+a1:Organization[?X] :- a1:Department[?X] .
+a1:Publication[?X] :- a1:Article[?X] .
+a1:Faculty[?X] :- a1:Lecturer[?X] .
+a1:Person[?X1] :- a1:publicationAuthor[?X,?X1] .
+a1:Publication[?X] :- a1:Software[?X] .
+a1:Research[?X1] :- a1:researchProject[?X,?X1] .
+a1:Organization[?X] :- a1:Program[?X] .
+a1:Employee[?X] :- a1:AdministrativeStaff[?X] .
+a1:Professor[?X1] :- a1:advisor[?X,?X1] .
+a1:Work[?X] :- a1:Course[?X] .
+a1:Professor[?X] :- a1:FullProfessor[?X] .
+a1:Publication[?X] :- a1:Book[?X] .
+a1:Publication[?X] :- a1:publicationResearch[?X,?X1] .
+a1:AdministrativeStaff[?X] :- a1:ClericalStaff[?X] .
+a1:degreeFrom[?X,?Y] :- a1:doctoralDegreeFrom[?X,?Y] .
+a1:Organization[?X] :- a1:affiliatedOrganizationOf[?X,?X1] .
+a1:TeachingAssistant[?X] :- a1:teachingAssistantOf[?X,?X1] .
+a1:Professor[?X] :- a1:VisitingProfessor[?X] .
+a1:Person[?X] :- a1:undergraduateDegreeFrom[?X,?X1] .
+a1:Organization[?X] :- a1:University[?X] .
+a1:Article[?X] :- a1:JournalArticle[?X] .
+a1:Research[?X1] :- a1:publicationResearch[?X,?X1] .
+a1:Person[?X] :- a1:Director[?X] .
+a1:Person[?X] :- a1:doctoralDegreeFrom[?X,?X1] .
+a1:Publication[?X] :- a1:publicationDate[?X,?X1] .
+a1:Organization[?X1] :- a1:affiliatedOrganizationOf[?X,?X1] .
+a1:University[?X1] :- a1:doctoralDegreeFrom[?X,?X1] .
+a1:Course[?X1] :- a1:teachingAssistantOf[?X,?X1] .
+a1:University[?X1] :- a1:undergraduateDegreeFrom[?X,?X1] .
+a1:degreeFrom[?X,?Y] :- a1:mastersDegreeFrom[?X,?Y] .
+a1:Schedule[?X] :- a1:listedCourse[?X,?X1] .
+a1:Person[?X] :- a1:GraduateStudent[?X] .
+a1:Person[?X] :- a1:ResearchAssistant[?X] .
+a1:Student[?X] :- a1:UndergraduateStudent[?X] .
+a1:degreeFrom[?X,?Y] :- a1:undergraduateDegreeFrom[?X,?Y] .
+a1:Publication[?X] :- a1:publicationAuthor[?X,?X1] .
+a1:Person[?X] :- a1:mastersDegreeFrom[?X,?X1] .
+a1:Organization[?X] :- a1:College[?X] .
+a1:Organization[?X] :- a1:ResearchGroup[?X] .
+a1:Faculty[?X] :- a1:teacherOf[?X,?X1] .
+a1:Publication[?X] :- a1:UnofficialPublication[?X] .
+a1:Person[?X] :- a1:Chair[?X] .
+a1:Employee[?X] :- a1:Person[?X], a1:worksFor[?X,?X1], a1:Organization[?X1] .
+a1:ResearchGroup[?X] :- a1:researchProject[?X,?X1] .
+a1:Organization[?X] :- a1:affiliateOf[?X,?X1] .
+a1:Course[?X] :- a1:GraduateCourse[?X] .
+a1:Student[?X] :- a1:Person[?X], a1:takesCourse[?X,?X1], a1:Course[?X1] .
+a1:Professor[?X] :- a1:Dean[?X] .
+a1:Publication[?X1] :- a1:orgPublication[?X,?X1] .
+a1:Publication[?X] :- a1:Manual[?X] .
+a1:Dean[?X] :- a1:headOf[?X,?X1], a1:College[?X1] .
+a1:Person[?X] :- a1:TeachingAssistant[?X] .
+a1:Organization[?X] :- a1:subOrganizationOf[?X,?X1] .
+a1:Person[?X] :- a1:Student[?X] .
+a1:Person[?X] :- a1:emailAddress[?X,?X1] .
+a1:subOrganizationOf[?X,?Z] :- a1:subOrganizationOf[?X,?Y], a1:subOrganizationOf[?Y,?Z] .
+
+# 1
+a1:haveSameAdvisor[?p1, ?p2] :- 
+    a1:hasAlumnus[?o, ?p1], 
+    a1:advisor[?p1, ?advisor],
+    a1:hasAlumnus[?o, ?p2],
+    a1:advisor[?p2, ?advisor] .
+
+# 2
+a1:fromSameCourse[?student, ?teacher] :-
+    a1:hasAlumnus[?uni, ?student],
+    a1:takesCourse[?student, ?course], 
+    a1:teacherOf[?teacher, ?course],
+    a1:hasAlumnus[?uni, ?teacher] .
+
+# 3
+a1:haveSameStudent[?teacher, ?advisor] :-
+    a1:hasAlumnus[?uni, ?student],
+    a1:takesCourse[?student, ?course],
+    a1:advisor[?student, ?advisor],
+    a1:teacherOf[?teacher, ?course],
+    a1:hasAlumnus[?uni, ?teacher],
+    a1:hasAlumnus[?uni, ?advisor] .
+
+# 4
+a1:studentHaveAdvisor[?student] :-
+    a1:member[?dep2, ?student],
+    a1:member[?dep1, ?advisor],
+    a1:subOrganizationOf[?dep2, ?uni],
+    a1:subOrganizationOf[?dep1, ?uni],
+    a1:advisor[?student, ?advisor] .
+
+# 5
+a1:studentInSameDepOfAdv[?student] :-
+    a1:member[?dep, ?student],
+    a1:advisor[?student, ?advisor],
+    a1:member[?dep, ?advisor] .
+
+# 6
+a1:researchTwins[?p1, ?p2] :-
+    a1:publicationAuthor[?paper, ?p1],
+    a1:member[?org1, ?p1],
+    a1:publicationAuthor[?paper, ?p2],
+    a1:member[?org1, ?p2],
+    a1:degreeFrom[?p1, ?org2],
+    a1:degreeFrom[?p2, ?org2] .
+
+# 7
+a1:similarResearchers[?p1, ?p2] :-
+    a1:member[?org1, ?p1],
+    a1:degreeFrom[?p1, ?org2],
+    a1:member[?org1, ?p2],
+    a1:degreeFrom[?p2, ?org2] .
+
+# 8
+a1:possibleCollaborators[?s1, ?s2] :-
+    a1:researchInterest[?s1, ?int],
+    a1:member[?uni, ?s1],
+    a1:researchInterest[?s2, ?int],
+    a1:member[?uni, ?s2] .
+
+# 9
+a1:inOneLabAndColl[?person1, ?person2] :-
+    a1:publicationAuthor[?pub, ?person1],
+    a1:publicationAuthor[?pub, ?person2],
+    a1:advisor[?person1, ?advisor],
+    a1:advisor[?person2, ?advisor],
+    a1:Person[?person1],
+    a1:Person[?person2] .
+
+# 10
+a1:studentInDepWhereAdvGotDegree[?student] :-
+    a1:member[?dep, ?student],
+    a1:subOrganizationOf[?dep, ?org],
+    a1:degreeFrom[?advisor, ?org],
+    a1:advisor[?student, ?advisor] .
+
+# 11
+a1:studentGradFromAdvWorks[?student] :-
+    a1:advisor[?student, ?advisor],
+    a1:degreeFrom[?student, ?uni],
+    a1:member[?org, ?advisor],
+    a1:subOrganizationOf[?org, ?uni] .
+
+# 12
+:q1xc[?X, ?C],
+:q1au[?A, ?U],
+:q1ay[?A, ?Y] :-
+    a1:degreeFrom[?X, ?U],
+    rdf:type[?X, a1:GraduateStudent],
+    a1:advisor[?X, ?A],
+    rdf:type[?A, a1:FullProfessor],
+    a1:teacherOf[?A, ?C], 
+    rdf:type[?C, a1:GraduateCourse],
+    a1:takesCourse[?Y, ?C],
+    rdf:type[?Y, a1:GraduateStudent],
+    a1:hasAlumnus[?U, ?Y] .
