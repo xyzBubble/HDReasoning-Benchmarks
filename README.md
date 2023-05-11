@@ -1,4 +1,4 @@
-This repo includes the benchmark data of the paper 'Enhancing Datalog Reasoning with Weighted Hypertree Decomposition' that is accepted by the main track of IJCAI 2023.
+This repo includes the benchmark data of the paper 'Enhancing Datalog Reasoning with Hypertree Decompositions' that is accepted by the main track of IJCAI 2023.
 The data description is shown below:
 * executable/ (containing the executable files of our methods)
 * LUBM/ (containing the rules and data of LUBM)
