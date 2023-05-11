@@ -1,0 +1,232 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+# 19 non recursive rules
+# 1: Clique_6, f_Q_0_11.txt.sparql
+<http://Q1x0x1>[?x0, ?x1],
+<http://Q1x2x3>[?x2, ?x3] :-
+    <http://edge46>[?x0, ?x2] ,
+    <http://edge17>[?x0, ?x3] ,
+    <http://edge46>[?x1, ?x0] ,
+    <http://edge46>[?x1, ?x3] ,
+    <http://edge17>[?x2, ?x1] ,
+    <http://edge17>[?x2, ?x3] .
+# 2: Cycle_6, f_Q_0_12.txt.sparql
+<http://Q2x0x1>[?x0, ?x1],
+<http://Q2x2x3>[?x2, ?x3],
+<http://Q2x4x5>[?x4, ?x5] :-
+    <http://edge0>[?x0, ?x5] ,
+    <http://edge2>[?x1, ?x0] ,
+    <http://edge2>[?x1, ?x2] ,
+    <http://edge25>[?x2, ?x3] ,
+    <http://edge11>[?x4, ?x3] ,
+    <http://edge0>[?x4, ?x5] .
+# 3: Cycle_6, f_Q_5_14.txt.sparql
+<http://Q3x0x1>[?x0, ?x1],
+<http://Q3x2x3>[?x2, ?x3],
+<http://Q3x4x5>[?x4, ?x5] :-
+    <http://edge8>[?x0, ?x1] ,
+    <http://edge11>[?x2, ?x1] ,
+    <http://edge11>[?x2, ?x3] ,
+    <http://edge8>[?x4, ?x3] ,
+    <http://edge2>[?x5, ?x0] ,
+    <http://edge2>[?x5, ?x4] .
+# 4: Cycle_6, f_Q_3_7.txt.sparql
+<http://Q4x0x1>[?x0, ?x1],
+<http://Q4x2x3>[?x2, ?x3],
+<http://Q4x4x5>[?x4, ?x5] :-
+    <http://edge22>[?x0, ?x1] ,
+    <http://edge22>[?x0, ?x5] ,
+    <http://edge17>[?x1, ?x2] ,
+    <http://edge57>[?x2, ?x3] ,
+    <http://edge57>[?x4, ?x3] ,
+    <http://edge17>[?x4, ?x5] .
+# 5: Cycle_6, f_Q_1_12.txt.sparql
+<http://Q5x0x1>[?x0, ?x1],
+<http://Q5x2x3>[?x2, ?x3],
+<http://Q5x4x5>[?x4, ?x5] :-
+    <http://edge8>[?x0, ?x1] ,
+    <http://edge11>[?x2, ?x1] ,
+    <http://edge0>[?x2, ?x3] ,
+    <http://edge0>[?x4, ?x3] ,
+    <http://edge2>[?x5, ?x0] ,
+    <http://edge2>[?x5, ?x4] .
+# 6: Cycle_6, f_Q_0_10.txt.sparql
+<http://Q6x0x1>[?x0, ?x1],
+<http://Q6x2x3>[?x2, ?x3],
+<http://Q6x4x5>[?x4, ?x5] :-
+    <http://edge5>[?x1, ?x0] ,
+    <http://edge54>[?x1, ?x2] ,
+    <http://edge5>[?x2, ?x3] ,
+    <http://edge17>[?x3, ?x4] ,
+    <http://edge5>[?x5, ?x0] ,
+    <http://edge21>[?x5, ?x4] .
+# 7: Cycle_6, f_Q_3_3.txt.sparql
+<http://Q7x0x1>[?x0, ?x1],
+<http://Q7x2x3>[?x2, ?x3],
+<http://Q7x4x5>[?x4, ?x5] :-
+    <http://edge47>[?x0, ?x1] ,
+    <http://edge36>[?x2, ?x1] ,
+    <http://edge50>[?x2, ?x3] ,
+    <http://edge55>[?x4, ?x3] ,
+    <http://edge55>[?x4, ?x5] ,
+    <http://edge29>[?x5, ?x0] .
+# 8: Flower_6, f_Q_3_3.txt.sparql
+<http://Q8x0x1>[?x0, ?x1],
+<http://Q8x2x3>[?x2, ?x3],
+<http://Q8x4x5>[?x4, ?x5] :-
+    <http://edge25>[?x0, ?x1] ,
+    <http://edge48>[?x0, ?x2] ,
+    <http://edge8>[?x0, ?x3] ,
+    <http://edge48>[?x0, ?x4] ,
+    <http://edge25>[?x5, ?x3] ,
+    <http://edge48>[?x5, ?x4] .
+# 9: Flower_6, f_Q_1_1.txt.sparql
+<http://Q9x0x1>[?x0, ?x1],
+<http://Q9x2x3>[?x2, ?x3],
+<http://Q9x4x5>[?x4, ?x5] :-
+    <http://edge17>[?x0, ?x1] ,
+    <http://edge21>[?x2, ?x0] ,
+    <http://edge17>[?x3, ?x4] ,
+    <http://edge17>[?x4, ?x0] ,
+    <http://edge17>[?x5, ?x0] ,
+    <http://edge17>[?x5, ?x3] .
+# 10: Flower_6, f_Q_3_1.txt.sparql
+<http://Q10x0x1>[?x0, ?x1],
+<http://Q10x2x3>[?x2, ?x3],
+<http://Q10x4x5>[?x4, ?x5] :-
+    <http://edge46>[?x0, ?x1] ,
+    <http://edge17>[?x2, ?x0] ,
+    <http://edge5>[?x3, ?x4] ,
+    <http://edge5>[?x3, ?x5] ,
+    <http://edge17>[?x4, ?x0] ,
+    <http://edge17>[?x5, ?x0] .
+# 11: Flower_6, f_Q_2_1.txt.sparql
+<http://Q11x0x1>[?x0, ?x1],
+<http://Q11x2x3>[?x2, ?x3],
+<http://Q11x4x5>[?x4, ?x5] :-
+    <http://edge17>[?x0, ?x1] ,
+    <http://edge36>[?x0, ?x2] ,
+    <http://edge46>[?x0, ?x3] ,
+    <http://edge46>[?x0, ?x4] ,
+    <http://edge58>[?x5, ?x3] ,
+    <http://edge58>[?x5, ?x4] .
+# 12: Flower_6, f_Q_5_3.txt.sparql
+<http://Q12x0x1>[?x0, ?x1],
+<http://Q12x2x3>[?x2, ?x3],
+<http://Q12x4x5>[?x4, ?x5] :-
+    <http://edge25>[?x0, ?x1] ,
+    <http://edge2>[?x2, ?x0] ,
+    <http://edge2>[?x3, ?x0] ,
+    <http://edge2>[?x3, ?x4] ,
+    <http://edge2>[?x5, ?x0] ,
+    <http://edge2>[?x5, ?x4] .
+# 13: Flower_6, f_Q_3_5.txt.sparql
+<http://Q13x0x1>[?x0, ?x1],
+<http://Q13x2x3>[?x2, ?x3],
+<http://Q13x4x5>[?x4, ?x5] :-
+    <http://edge17>[?x0, ?x3] ,
+    <http://edge21>[?x1, ?x0] ,
+    <http://edge21>[?x2, ?x0] ,
+    <http://edge17>[?x3, ?x4] ,
+    <http://edge21>[?x5, ?x0] ,
+    <http://edge5>[?x5, ?x4] .
+# 14: Petal_6, f_Q_0_12.txt.sparql
+<http://Q14x0x1>[?x0, ?x1],
+<http://Q14x2x3>[?x2, ?x3],
+<http://Q14x4x5>[?x4, ?x5] :-
+    <http://edge31>[?x0, ?x2] ,
+    <http://edge0>[?x0, ?x4] ,
+    <http://edge5>[?x3, ?x1] ,
+    <http://edge36>[?x3, ?x2] ,
+    <http://edge5>[?x5, ?x1] ,
+    <http://edge0>[?x5, ?x4] .
+# 15: Petal_6, f_Q_3_7.txt.sparql
+<http://Q15x0x1>[?x0, ?x1],
+<http://Q15x2x3>[?x2, ?x3],
+<http://Q15x4x5>[?x4, ?x5] :-
+    <http://edge17>[?x0, ?x4] ,
+    <http://edge39>[?x1, ?x3] ,
+    <http://edge5>[?x1, ?x5] ,
+    <http://edge21>[?x2, ?x0] ,
+    <http://edge39>[?x2, ?x3] ,
+    <http://edge17>[?x5, ?x4] .
+# 16: Petal_6, f_Q_1_12.txt.sparql
+<http://Q16x0x1>[?x0, ?x1],
+<http://Q16x2x3>[?x2, ?x3],
+<http://Q16x4x5>[?x4, ?x5] :-
+    <http://edge31>[?x0, ?x2] ,
+    <http://edge31>[?x0, ?x4] ,
+    <http://edge5>[?x3, ?x1] ,
+    <http://edge35>[?x3, ?x2] ,
+    <http://edge22>[?x5, ?x1] ,
+    <http://edge35>[?x5, ?x4] .
+# 17: Petal_6, f_Q_0_10.txt.sparql
+<http://Q17x0x1>[?x0, ?x1],
+<http://Q17x2x3>[?x2, ?x3],
+<http://Q17x4x5>[?x4, ?x5] :-
+    <http://edge17>[?x0, ?x2] ,
+    <http://edge17>[?x0, ?x4] ,
+    <http://edge46>[?x1, ?x3] ,
+    <http://edge58>[?x2, ?x3] ,
+    <http://edge17>[?x5, ?x1] ,
+    <http://edge46>[?x5, ?x4] .
+# 18: Petal_6, f_Q_3_3.txt.sparql
+<http://Q18x0x1>[?x0, ?x1],
+<http://Q18x2x3>[?x2, ?x3],
+<http://Q18x4x5>[?x4, ?x5] :-
+    <http://edge17>[?x0, ?x4] ,
+    <http://edge17>[?x1, ?x3] ,
+    <http://edge21>[?x2, ?x0] ,
+    <http://edge21>[?x2, ?x3] ,
+    <http://edge17>[?x4, ?x5] ,
+    <http://edge17>[?x5, ?x1] .
+# 19: Petal_6, f_Q_1_9.txt.sparql
+<http://Q19x0x1>[?x0, ?x1],
+<http://Q19x2x3>[?x2, ?x3],
+<http://Q19x4x5>[?x4, ?x5] :-
+    <http://edge17>[?x0, ?x2] ,
+    <http://edge17>[?x0, ?x4] ,
+    <http://edge5>[?x3, ?x1] ,
+    <http://edge21>[?x3, ?x2] ,
+    <http://edge22>[?x5, ?x1] ,
+    <http://edge21>[?x5, ?x4] .
+
+# 4 recursive rules
+# 1: Clique_6, f_Q_0_11.txt.sparql
+<http://edge46>[?x0, ?x3],
+<http://Q1x1x2>[?x1, ?x2] :-
+    <http://edge46>[?x0, ?x2] ,
+    <http://edge17>[?x0, ?x3] ,
+    <http://edge46>[?x1, ?x0] ,
+    <http://edge46>[?x1, ?x3] ,
+    <http://edge17>[?x2, ?x1] ,
+    <http://edge17>[?x2, ?x3] .
+# 2: Cycle_6, f_Q_0_12.txt.sparql
+<http://edge0>[?x0, ?x1],
+<http://Q2x2x3>[?x2, ?x3],
+<http://Q2x4x5>[?x4, ?x5] :-
+    <http://edge0>[?x0, ?x5] ,
+    <http://edge2>[?x1, ?x0] ,
+    <http://edge2>[?x1, ?x2] ,
+    <http://edge25>[?x2, ?x3] ,
+    <http://edge11>[?x4, ?x3] ,
+    <http://edge0>[?x4, ?x5] .
+# 3: Flower_6, f_Q_3_3.txt.sparql
+<http://edge25>[?x0, ?x2],
+<http://Q3x1x3>[?x1, ?x3],
+<http://Q3x4x5>[?x4, ?x5] :-
+    <http://edge25>[?x0, ?x1] ,
+    <http://edge48>[?x0, ?x2] ,
+    <http://edge8>[?x0, ?x3] ,
+    <http://edge48>[?x0, ?x4] ,
+    <http://edge25>[?x5, ?x3] ,
+    <http://edge48>[?x5, ?x4] .
+# 4: Petal_6, f_Q_0_12.txt.sparql
+<http://edge31>[?x0, ?x1],
+<http://Q4x2x3>[?x2, ?x3],
+<http://Q4x4x5>[?x4, ?x5] :-
+    <http://edge31>[?x0, ?x2] ,
+    <http://edge0>[?x0, ?x4] ,
+    <http://edge5>[?x3, ?x1] ,
+    <http://edge36>[?x3, ?x2] ,
+    <http://edge5>[?x5, ?x1] ,
+    <http://edge0>[?x5, ?x4] .
