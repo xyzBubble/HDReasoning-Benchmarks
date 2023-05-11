@@ -124,15 +124,6 @@ a1:fromSameCourse[?student, ?teacher] :-
     a1:hasAlumnus[?uni, ?teacher] .
 
 # 3
-a1:haveSameStudent[?teacher, ?advisor] :-
-    a1:hasAlumnus[?uni, ?student],
-    a1:takesCourse[?student, ?course],
-    a1:advisor[?student, ?advisor],
-    a1:teacherOf[?teacher, ?course],
-    a1:hasAlumnus[?uni, ?teacher],
-    a1:hasAlumnus[?uni, ?advisor] .
-
-# 4
 a1:studentHaveAdvisor[?student] :-
     a1:member[?dep2, ?student],
     a1:member[?dep1, ?advisor],
@@ -140,62 +131,44 @@ a1:studentHaveAdvisor[?student] :-
     a1:subOrganizationOf[?dep1, ?uni],
     a1:advisor[?student, ?advisor] .
 
-# 5
+# 4
 a1:studentInSameDepOfAdv[?student] :-
     a1:member[?dep, ?student],
     a1:advisor[?student, ?advisor],
     a1:member[?dep, ?advisor] .
 
-# 6
-a1:researchTwins[?p1, ?p2] :-
-    a1:publicationAuthor[?paper, ?p1],
-    a1:member[?org1, ?p1],
-    a1:publicationAuthor[?paper, ?p2],
-    a1:member[?org1, ?p2],
-    a1:degreeFrom[?p1, ?org2],
-    a1:degreeFrom[?p2, ?org2] .
-
-# 7
+# 5
 a1:similarResearchers[?p1, ?p2] :-
     a1:member[?org1, ?p1],
     a1:degreeFrom[?p1, ?org2],
     a1:member[?org1, ?p2],
     a1:degreeFrom[?p2, ?org2] .
 
-# 8
+# 6
 a1:possibleCollaborators[?s1, ?s2] :-
     a1:researchInterest[?s1, ?int],
     a1:member[?uni, ?s1],
     a1:researchInterest[?s2, ?int],
     a1:member[?uni, ?s2] .
 
-# 9
-a1:inOneLabAndColl[?person1, ?person2] :-
-    a1:publicationAuthor[?pub, ?person1],
-    a1:publicationAuthor[?pub, ?person2],
-    a1:advisor[?person1, ?advisor],
-    a1:advisor[?person2, ?advisor],
-    a1:Person[?person1],
-    a1:Person[?person2] .
-
-# 10
+# 7
 a1:studentInDepWhereAdvGotDegree[?student] :-
     a1:member[?dep, ?student],
     a1:subOrganizationOf[?dep, ?org],
     a1:degreeFrom[?advisor, ?org],
     a1:advisor[?student, ?advisor] .
 
-# 11
+# 8
 a1:studentGradFromAdvWorks[?student] :-
     a1:advisor[?student, ?advisor],
     a1:degreeFrom[?student, ?uni],
     a1:member[?org, ?advisor],
     a1:subOrganizationOf[?org, ?uni] .
 
-# 12
-:q1xc[?X, ?C],
-:q1au[?A, ?U],
-:q1ay[?A, ?Y] :-
+# 9, g1 in sumRDF
+:q12xc[?X, ?C],
+:q12au[?A, ?U],
+:q12ay[?A, ?Y] :-
     a1:degreeFrom[?X, ?U],
     rdf:type[?X, a1:GraduateStudent],
     a1:advisor[?X, ?A],
@@ -205,3 +178,65 @@ a1:studentGradFromAdvWorks[?student] :-
     a1:takesCourse[?Y, ?C],
     rdf:type[?Y, a1:GraduateStudent],
     a1:hasAlumnus[?U, ?Y] .
+
+# 10, g2 in sumRDF
+:q13xc[?X, ?C],
+:q13au[?A, ?U] :-
+    a1:advisor[?X, ?A],
+    a1:teacherOf[?A, ?C],
+    a1:takesCourse[?X, ?C],
+    a1:headOf[?A, ?D],
+    a1:subOrganizationOf[?D, ?U] .
+
+# 11, g3 in sumRDF
+:q14GraduateAndTAIn[?X, ?U] :-
+    a1:teachingAssistantOf[?X, ?C],
+    a1:teacherOf[?H, ?C],
+    a1:headOf[?H, ?D],
+    a1:subOrganizationOf[?D, ?U],
+    rdf:type[?U, a1:University],
+    a1:degreeFrom[?X, ?U] .
+
+# 12, g6 in sumRDF
+:q15GraduateAndTAWhereHeWorks[?X, ?P] :-
+    a1:subOrganizationOf[?D, ?U],
+    a1:worksFor[?P, ?D],
+    a1:teacherOf[?P, ?C],
+    a1:teachingAssistantOf[?X, ?C],
+    a1:degreeFrom[?X, ?U],
+    rdf:type[?C, a1:Course] .
+
+# 13, g7 in sumRDF
+:q16GraduateAndTakeCourseWhereHeWorks[?X, ?P] :-
+    a1:subOrganizationOf[?D, ?U],
+    a1:worksFor[?P, ?D],
+    a1:teacherOf[?P, ?C],
+    a1:takesCourse[?X, ?C],
+    a1:degreeFrom[?X, ?U],
+    rdf:type[?C, a1:GraduateCourse] .
+
+
+# 14, g12 in sumRDF
+:q18WorksForWhereAdvisorGraduate[?X, ?Y] :-
+    a1:worksFor[?X, ?Z],
+    a1:subOrganizationOf[?Z, ?U],
+    a1:undergraduateDegreeFrom[?Y, ?U],
+    a1:advisor[?Y, ?X] .
+
+# 15, g13 / q2 in sumRDF
+:q19BSFromAndMemberOf[?X, ?Y] :-
+    a1:undergraduateDegreeFrom[?X, ?Y],
+    a1:memberOf[?X, ?Z],
+    a1:subOrganizationOf[?Z, ?Y],
+    rdf:type[?X, a1:GraduateStudent],
+    rdf:type[?Z, a1:Department],
+    rdf:type[?Y, a1:University] .
+
+# 16, g15 in sumRDF
+:q20BSFromAndMemberOf[?X, ?Y] :-
+    a1:undergraduateDegreeFrom[?X, ?Y],
+    a1:memberOf[?X, ?Z],
+    a1:subOrganizationOf[?Z, ?Y],
+    rdf:type[?X, a1:UndergraduateStudent],
+    rdf:type[?Z, a1:Department],
+    rdf:type[?Y, a1:University] .
