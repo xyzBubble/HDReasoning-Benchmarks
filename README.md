@@ -10,7 +10,7 @@ The data description is shown below:
   * exp-rules.dlog (the rules of Expressions)
 * YAGO/ (containing the rules of YAGO)
   * yago_rules.dlog (the rules of YAGO)
-  * for the datasets of YAGO, please find it here https://github.com/yspark-dblab/gcare. We use the GCARE-version of YAGO directly. 
+  * for the datasets of YAGO, please find it [here](https://github.com/yspark-dblab/gcare). We use the GCARE-version of YAGO directly. 
   
 To decompress exp300.nt.tar.bz2, please use the code below:
 ```
@@ -39,4 +39,4 @@ import + "DATA_TO_BE_DELETED.nt"
 mat (incremental materialisation, addition)
 ```
 
-For instructions of constructing "DATA_TO_BE_DELETED.nt" files, please refer to "DATA_TO_BE_DELETED.nt".
+For instructions of constructing "DATA_TO_BE_DELETED.nt" files, please refer to [here](https://krr-nas.cs.ox.ac.uk/2021/modular-reasoning/).
