@@ -1,5 +1,6 @@
 This repo includes the benchmark data of the paper 'Enhancing Datalog Reasoning with Weighted Hypertree Decomposition' that is accepted by the main track of IJCAI 2023.
 The data description is shown below:
+* executable/ (containing the executable files of our methods)
 * LUBM/ (containing the rules and data of LUBM)
   * LUBM-500-split* (the subsections of LUBM-500.nt.tar.bz2)
   * LUBM_L.dlog (LUBM L rules)
@@ -33,7 +34,9 @@ mat
 import + 'DATA.nt'
 mat (initial materialisation)
 import - "DATA_TO_BE_DELETED.nt"
-mat (incremental materialisation)
+mat (incremental materialisation, deletion)
+import + "DATA_TO_BE_DELETED.nt"
+mat (incremental materialisation, addition)
 ```
 
 For instructions of constructing "DATA_TO_BE_DELETED.nt" files, please refer to "DATA_TO_BE_DELETED.nt".
